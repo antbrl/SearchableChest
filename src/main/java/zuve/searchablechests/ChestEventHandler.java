@@ -37,7 +37,7 @@ public class ChestEventHandler {
 	private Minecraft mc;
 	private RichTextFieldWidget searchField;
 	private boolean newGui;
-	private ResourceLocation searchBar = new ResourceLocation("searchablechests", "textures/gui/search_bar.png");
+	private ResourceLocation searchBar = new ResourceLocation("minecraft", "textures/gui/container/creative_inventory/tab_item_search.png");
 	private MatrixStack ms;
 
 	public ChestEventHandler() {
@@ -74,7 +74,7 @@ public class ChestEventHandler {
 			event.addWidget(searchField);
 			searchField.setMaxStringLength(50);
 			searchField.setEnableBackgroundDrawing(false);
-			searchField.setTextColor(16777215);
+			searchField.setTextColor(0xffffff);
 			searchField.setCanLoseFocus(true);
 			searchField.setSelectOnFocus(SearchableChestsConfig.autoSelect);
 			searchField.setVisible(true);
@@ -121,8 +121,8 @@ public class ChestEventHandler {
 	public void onBackground(GuiContainerEvent.DrawBackground event) {
 		if (searchField != null) {
 			mc.getTextureManager().bindTexture(searchBar);
-			AbstractGui.blit(ms, event.getGuiContainer().getGuiLeft() + 79, event.getGuiContainer().getGuiTop() + 4, 0.0F,
-					0.0F, 90, 12, 90, 12);
+			AbstractGui.blit(ms, event.getGuiContainer().getGuiLeft() + 79, event.getGuiContainer().getGuiTop() + 4, 80,
+					4, 90, 12, 256, 256);
 		}
 	}
 
